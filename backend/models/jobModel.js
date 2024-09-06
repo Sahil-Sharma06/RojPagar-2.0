@@ -11,7 +11,7 @@ const jobSchema = new mongoose.Schema({
         trim: true,
     },
     jobType: {
-        type: String, // e.g., 'construction', 'plumbing', 'cleaning'
+        type: String, 
         required: true,
     },
     location: {
@@ -30,12 +30,12 @@ const jobSchema = new mongoose.Schema({
     },
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the job agent
+        ref: 'User', 
         required: true,
     },
     assignedTo: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the worker assigned to the job
+        ref: 'User', 
     },
 });
 

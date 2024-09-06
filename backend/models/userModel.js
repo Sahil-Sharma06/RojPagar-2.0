@@ -1,9 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema({
-    name: {
+    fullname:{
+        type: 'string',
+        required: true,
+    },
+    username: {
         type: String,
         required: true,
+        unique:true,
         trim: true,
     },
     phone: {
@@ -16,10 +21,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    confirmPassword: {
-        type: String,
-        required: true,
-    },
     role: {
         type: String,
         enum: ['worker', 'job_agent'],
@@ -29,11 +30,8 @@ const userSchema = new mongoose.Schema({
         type: [String],  // Array of job types the user is interested in
     },
     location: {
-        type: {
             type: String,
-            enum: ['Point'],
-            default: 'Point',
-        }
+            required: true,
     },
     rating: {
         type: Number,
